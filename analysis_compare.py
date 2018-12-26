@@ -1,6 +1,9 @@
 import datetime
 import random
 
+import subprocess
+import sys
+
 from leelazWrapper  import LzWrapper
 from sgf_creator import sgf_creator
 from misc import adjust_variations_to_color, switched, generate_comment
@@ -15,7 +18,7 @@ from misc import adjust_variations_to_color, switched, generate_comment
     # return list: for each move the winrate for black
     # games should have some randomness in beginning...
 
-def create_self_play_game(leela1, leela2, sgf):
+def create_self_play_game(leela1, leela2, sgf, log_move="."):
     color = 'B'
     move_nr = 1
     while True:
@@ -33,6 +36,8 @@ def create_self_play_game(leela1, leela2, sgf):
         if move == 'resign':
             winner = switched(color)
             return winner, sgf
+        sys.stdout.write(log_move)
+        sys.stdout.flush()
         
         # simplification: game ends after first pass
         if move == 'pass':
@@ -59,10 +64,10 @@ def main(nr_of_games=1):
     leela1 = LzWrapper(leela, weights, visits1)
     leela2 = LzWrapper(leela, weights, visits2)
 
-    print("Start")
     b_wins = 0
     w_wins = 0
     for i in range(nr_of_games):
+        print("Game", i)
         leela1.clear_board()
         leela2.clear_board()
         sgf=sgf_creator(opening=[], visits1=visits1, visits2=visits2)
@@ -71,7 +76,7 @@ def main(nr_of_games=1):
             b_wins += 1
         else:
             w_wins += 1
-        print('b(v={})_wins:'.format(visits1),b_wins)
+        print('\nb(v={})_wins:'.format(visits1),b_wins)
         print('w(v={})_wins:'.format(visits2),w_wins)
         sgf.save('games/eval_{}_vb{}_vw{}_{}.sgf'.format(str(datetime.datetime.now()), visits1, visits2, random.randint(0,100000)))
 

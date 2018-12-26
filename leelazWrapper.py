@@ -149,6 +149,8 @@ class LzWrapper:
         ...' GTP line (inclusive)
         """
         command_bytes = bytes(command, encoding='ascii')
+        if self._debug_lz:
+            print(command_bytes)
         self._lz.stdin.write(command_bytes)
         self._lz.stdin.flush()
 
