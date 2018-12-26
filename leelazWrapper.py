@@ -64,7 +64,7 @@ class LzWrapper:
     """
     _VARIATION = re.compile(r" *([^ ]*) -> *([^ ]*) \(V: ([^%]*)%\).*$")
 
-    def __init__(self, lz_binary, weights, visits, puct=0.8, log_f=_dumb_log, debug=False):
+    def __init__(self, lz_binary, weights, visits, puct=0.8, nr_rand_moves=0, remote=False, log_f=_dumb_log, debug=False):
         """
         Start Leela Zero wrapper.
 
@@ -73,20 +73,45 @@ class LzWrapper:
         :param visits: number of visits to use
         :param log_f: function to log messages
         """
-
         self._log = log_f
         self._debug_lz = debug
-        cmd_line = [lz_binary]
-        cmd_line += ['-w', weights]
-        cmd_line += ['-v', str(visits)]
-        cmd_line += ['-c', str(puct)]
-        
-        cmd_line += ['--gtp']
-        cmd_line += ['-r10'] # do not resign before x%
 
+        if remote:
+            # gcloud compute ssh "$INSTANCE_NAME" --zone "$ZONE" --command "/leela/leelaz -g -t $CPU_COUNT -w /leela/$NETWORK-network.gz -b0 -v5"
+            #cmd_line = ['gcloud compute ssh "$INSTANCE_NAME" --zone "$ZONE" --command "/leela/leelaz']
+            instance = "lizzieeuc" # TODO get from source
+            weights = "/leela/best-network.gz"
+            zone = "europe-west4-c"
+            nr_cpus = 6
+            cmd_line =  ["gcloud", "compute", "ssh"]
+            cmd_line += [instance]
+            cmd_line += ['--zone', zone]
+
+            lz_binary = '/leela/leelaz'
+            cmd_leela = lz_binary
+            cmd_leela += ' -w' + weights
+            cmd_leela += ' -v' +  str(visits)
+            #cmd_leela += ' -c' + str(puct)
+            cmd_leela += ' -m' + str(nr_rand_moves)
+            cmd_leela += ' --gtp'
+            cmd_leela += ' -b0'
+            cmd_leela += ' -t' + str(nr_cpus)
+            cmd_leela += ' -r10' # do not resign before x%
+
+            cmd_line += ['--command', cmd_leela]
+        else:
+            cmd_line = [lz_binary]
+            cmd_line += ['--weights', weights]
+            cmd_line += ['-v', str(visits)]
+            cmd_line += ['-c', str(puct)]
+            cmd_line += ['-m', str(nr_rand_moves)]
+            
+            cmd_line += ['--gtp']
+            cmd_line += ['-r10'] # do not resign before x%
 
         # pylint: disable=fixme
-        cmd_line += ['-m', '30']  # FIXME: hardcoded
+        if self._debug_lz:
+            print(cmd_line)
         self._log("Starting LZ")
         self._lz = Popen(cmd_line,
                          stdin=PIPE, stdout=PIPE, stderr=PIPE,

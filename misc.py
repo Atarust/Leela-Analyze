@@ -1,4 +1,6 @@
 import datetime
+from subprocess import Popen, PIPE
+import os
 
 def format_to_00(move_in):
     # there exists formats: a1, 00, aa, A1

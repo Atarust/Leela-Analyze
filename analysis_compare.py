@@ -55,14 +55,24 @@ def create_self_play_game(leela1, leela2, sgf, log_move="."):
         color = switched(color)
         move_nr += 1
 
-def main(nr_of_games=1):
-    visits1 = 25
-    visits2 = 50
-    weights = 'network.gz'
-    leela = '../leela-zero/src/leelaz'
+def main(nr_of_games=1, visits1 = 1, visits2 = 1, remote=False):
 
-    leela1 = LzWrapper(leela, weights, visits1)
-    leela2 = LzWrapper(leela, weights, visits2)
+    normal_leela = '/home/jonas/leela-study/leela-zero/src/leelaz'
+    remote_leela = 'scripts/remote-leelaz'
+
+    weights = 'network.gz'
+    if remote:
+        leela = remote_leela
+    else:
+        leela = normal_leela
+
+    if remote:
+        # start remote cloud
+        print("Starting cloud")
+        subprocess.call("scripts/start-instance.sh")
+
+    leela1 = LzWrapper(leela, weights, visits1, nr_rand_moves=10, remote=remote)
+    leela2 = LzWrapper(leela, weights, visits2, nr_rand_moves=10, remote=remote)
 
     b_wins = 0
     w_wins = 0
@@ -80,4 +90,19 @@ def main(nr_of_games=1):
         print('w(v={})_wins:'.format(visits2),w_wins)
         sgf.save('games/eval_{}_vb{}_vw{}_{}.sgf'.format(str(datetime.datetime.now()), visits1, visits2, random.randint(0,100000)))
 
-main(nr_of_games=50)
+    if remote:
+        # stop remote cloud
+        print("stoping cloud.")
+        subprocess.call("scripts/stop-instance.sh")
+
+
+remote = False
+
+try:
+    for v2 in range(10,60,10):
+        print(v2)
+        main(nr_of_games=10,visits1=10,visits2=v2, remote=remote)
+except:
+    if remote:
+        print("Error. stopping cloud.")
+        subprocess.call("scripts/stop-instance.sh")
