@@ -1,0 +1,556 @@
+(;GM[1]FF[4]RU[Chinese]DT[1999-12-31]SZ[19]KM[7.5]PB[LeelaZero]PW[LeelaZero]RE[B+Resign]C[visits1 = 25, visits2 = 50, weights1 = weights, weights2 = weights];B[pd]C[B:
+N5: 12 visits, 77.12%
+T16: 7 visits, 78.71%
+C14: 4 visits, 81.64%
+F15: 4 visits, 74.14%
+
+best move!!
+lost 77.12% winrate (this display still needs to be tested)];W[pp]C[W:
+G17: 20 visits, 86.6%
+H6: 19 visits, 89.4%
+T16: 6 visits, 87.03999999999999%
+P3: 6 visits, 88.45%
+
+best move!!
+lost 86.6% winrate (this display still needs to be tested)];B[dd]C[B:
+A14: 10 visits, 83.83%
+C14: 6 visits, 81.78%
+T16: 3 visits, 77.95%
+F15: 3 visits, 77.44%
+H6: 2 visits, 65.79%
+P3: 2 visits, 62.44%
+
+best move!!
+lost 83.83% winrate (this display still needs to be tested)];W[dq]C[W:
+T16: 15 visits, 84.27%
+H19: 12 visits, 86.46000000000001%
+P3: 9 visits, 86.67%
+M18: 6 visits, 88.1%
+M19: 5 visits, 89.69%
+E16: 2 visits, 89.23%
+
+best move!!
+lost 84.27% winrate (this display still needs to be tested)];B[qq]C[B:
+F15: 12 visits, 87.27%
+C14: 11 visits, 84.98%
+H6: 2 visits, 67.79%
+M18: 1 visits, 86.63%
+
+best move!!
+lost 87.27% winrate (this display still needs to be tested)];W[qp]C[W:
+G6: 27 visits, 89.1%
+M18: 0 visits, 100.0%
+
+best move!!
+lost 89.1% winrate (this display still needs to be tested)];B[pq]C[B:
+E15: 28 visits, 86.44%
+E16: 0 visits, 0.0%
+
+best move!!
+lost 86.44% winrate (this display still needs to be tested)];W[op]C[W:
+N19: 25 visits, 87.23%
+H6: 16 visits, 90.78%
+M18: 2 visits, 87.83%
+
+best move!!
+lost 87.23% winrate (this display still needs to be tested)];B[nr]C[B:
+C14: 13 visits, 84.81%
+T16: 5 visits, 87.15%
+H6: 2 visits, 76.08%
+
+best move!!
+lost 84.81% winrate (this display still needs to be tested)];W[do]C[W:
+M18: 27 visits, 87.76%
+P3: 2 visits, 90.65%
+
+best move!!
+lost 87.76% winrate (this display still needs to be tested)];B[cf]C[B:
+H6: 13 visits, 85.07%
+E16: 7 visits, 86.18%
+
+best move!!
+lost 85.07% winrate (this display still needs to be tested)];W[qc]C[W:
+L19: 26 visits, 89.88%
+P3: 15 visits, 90.89%
+
+best move!!
+lost 89.88% winrate (this display still needs to be tested)];B[pc]C[B:
+T15: 14 visits, 91.29%
+G6: 12 visits, 79.94%
+
+best move!!
+lost 91.29% winrate (this display still needs to be tested)];W[qd]C[W:
+M19: 24 visits, 88.51%
+P3: 6 visits, 91.28%
+H19: 5 visits, 91.58%
+
+best move!!
+lost 88.51% winrate (this display still needs to be tested)];B[qe]C[B:
+M19: 12 visits, 91.81%
+M18: 8 visits, 90.29%
+K19: 3 visits, 88.98%
+
+best move!!
+lost 91.81% winrate (this display still needs to be tested)];W[re]C[W:
+P3: 19 visits, 84.99%
+L17: 9 visits, 87.59%
+L16: 6 visits, 88.45%
+E16: 5 visits, 89.16%
+P16: 5 visits, 90.26%
+
+best move!!
+lost 84.99% winrate (this display still needs to be tested)];B[rf]C[B:
+H6: 13 visits, 87.41%
+M18: 5 visits, 91.8%
+
+best move!!
+lost 87.41% winrate (this display still needs to be tested)];W[qf]C[W:
+P16: 18 visits, 87.58%
+L16: 15 visits, 86.22%
+L17: 15 visits, 90.17%
+
+best move!!
+lost 87.58% winrate (this display still needs to be tested)];B[pe]C[B:
+G6: 15 visits, 87.91%
+L19: 7 visits, 87.15%
+
+best move!!
+lost 87.91% winrate (this display still needs to be tested)];W[rg]C[W:
+L16: 26 visits, 86.42%
+L9: 0 visits, 100.0%
+
+best move!!
+lost 86.42% winrate (this display still needs to be tested)];B[rd]C[B:
+K19: 24 visits, 88.38%
+P3: 0 visits, 0.0%
+
+best move!!
+lost 88.38% winrate (this display still needs to be tested)];W[sf]C[W:
+R7: 18 visits, 77.89%
+L10: 13 visits, 86.34%
+L9: 8 visits, 89.78%
+pass: 4 visits, 91.94%
+K7: 3 visits, 89.99%
+D8: 1 visits, 92.89%
+
+best move!!
+lost 77.89% winrate (this display still needs to be tested)];B[rc]C[B:
+H19: 11 visits, 86.54%
+L17: 5 visits, 88.39%
+P3: 5 visits, 87.62%
+E16: 4 visits, 86.15%
+
+best move!!
+lost 86.54% winrate (this display still needs to be tested)];W[mq]C[W:
+Q8: 31 visits, 90.71000000000001%
+T7: 11 visits, 92.15%
+
+best move!!
+lost 90.71000000000001% winrate (this display still needs to be tested)];B[nq]C[B:
+E16: 15 visits, 86.57%
+P16: 10 visits, 86.85%
+
+best move!!
+lost 86.57% winrate (this display still needs to be tested)];W[np]C[W:
+D4: 21 visits, 50.52%
+D16: 21 visits, 51.07%
+D17: 6 visits, 50.54%
+C16: 5 visits, 51.52%
+D3: 3 visits, 48.73%
+
+best move!!
+lost 50.52% winrate (this display still needs to be tested)];B[mp]C[B:
+L17: 14 visits, 86.34%
+L16: 10 visits, 87.34%
+
+best move!!
+lost 86.34% winrate (this display still needs to be tested)];W[lq]C[W:
+R3: 30 visits, 51.24%
+C5: 16 visits, 51.34%
+D4: 4 visits, 49.14%
+
+best move!!
+lost 51.24% winrate (this display still needs to be tested)];B[mo]C[B:
+C18: 11 visits, 86.72%
+R7: 9 visits, 87.54%
+D18: 5 visits, 81.79%
+
+best move!!
+lost 86.72% winrate (this display still needs to be tested)];W[kp]C[W:
+Q3: 42 visits, 50.24%
+C5: 0 visits, 100.0%
+
+best move!!
+lost 50.24% winrate (this display still needs to be tested)];B[rp]C[B:
+R8: 15 visits, 86.46%
+Q8: 1 visits, 2.67%
+
+best move!!
+lost 86.46% winrate (this display still needs to be tested)];W[ro]C[W:
+O2: 39 visits, 50.13%
+P3: 11 visits, 49.73%
+
+best move!!
+lost 50.13% winrate (this display still needs to be tested)];B[rq]C[B:
+D4: 8 visits, 49.68%
+D16: 7 visits, 48.62%
+Q16: 6 visits, 48.63%
+Q4: 5 visits, 47.94%
+
+best move!!
+lost 49.68% winrate (this display still needs to be tested)];W[qn]C[W:
+N3: 11 visits, 50.46%
+D6: 9 visits, 49.95%
+O17: 6 visits, 50.76%
+C14: 6 visits, 51.18%
+R8: 5 visits, 51.54%
+D14: 1 visits, 45.57%
+
+best move!!
+lost 50.46% winrate (this display still needs to be tested)];B[mm]C[B:
+D4: 14 visits, 49.16%
+D16: 11 visits, 48.95%
+
+best move!!
+lost 49.16% winrate (this display still needs to be tested)];W[kn]C[W:
+R16: 21 visits, 50.15%
+Q17: 14 visits, 50.9%
+
+best move!!
+lost 50.15% winrate (this display still needs to be tested)];B[pl]C[B:
+R3: 15 visits, 47.99%
+C5: 12 visits, 49.39%
+
+best move!!
+lost 47.99% winrate (this display still needs to be tested)];W[ql]C[W:
+R15: 27 visits, 50.82%
+Q15: 4 visits, 52.62%
+
+best move!!
+lost 50.82% winrate (this display still needs to be tested)];B[qk]C[B:
+Q3: 15 visits, 48.69%
+C5: 0 visits, 0.0%
+
+best move!!
+lost 48.69% winrate (this display still needs to be tested)];W[pk]C[W:
+S14: 31 visits, 50.32%
+R14: 0 visits, 100.0%
+
+best move!!
+lost 50.32% winrate (this display still needs to be tested)];B[ol]C[B:
+O2: 13 visits, 49.73%
+P3: 4 visits, 50.14%
+
+best move!!
+lost 49.73% winrate (this display still needs to be tested)];W[qj]C[W:
+Q15: 36 visits, 50.13%
+D6: 0 visits, 100.0%
+
+best move!!
+lost 50.13% winrate (this display still needs to be tested)];B[qm]C[B:
+R8: 9 visits, 48.89%
+C14: 8 visits, 50.5%
+D6: 5 visits, 51.51%
+N3: 4 visits, 48.93%
+
+best move!!
+lost 48.89% winrate (this display still needs to be tested)];W[rk]C[W:
+S16: 41 visits, 49.78%
+R18: 1 visits, 57.86%
+
+best move!!
+lost 49.78% winrate (this display still needs to be tested)];B[rm]C[B:
+R16: 14 visits, 49.21%
+Q17: 10 visits, 50.28%
+
+best move!!
+lost 49.21% winrate (this display still needs to be tested)];W[pm]C[W:
+S17: 44 visits, 49.85%
+D6: 0 visits, 100.0%
+
+best move!!
+lost 49.85% winrate (this display still needs to be tested)];B[pn]C[B:
+R15: 23 visits, 50.35%
+Q15: 4 visits, 48.28%
+
+best move!!
+lost 50.35% winrate (this display still needs to be tested)];W[nn]C[W:
+O3: 26 visits, 49.65%
+N2: 7 visits, 49.72%
+
+best move!!
+lost 49.65% winrate (this display still needs to be tested)];B[mn]C[B:
+S14: 26 visits, 50.8%
+R14: 1 visits, 51.43%
+
+best move!!
+lost 50.8% winrate (this display still needs to be tested)];W[om]C[W:
+M3: 20 visits, 48.11%
+N4: 16 visits, 50.77%
+
+best move!!
+lost 48.11% winrate (this display still needs to be tested)];B[nm]C[B:
+Q15: 27 visits, 50.5%
+D6: 0 visits, 0.0%
+
+best move!!
+lost 50.5% winrate (this display still needs to be tested)];W[on]C[W:
+N5: 21 visits, 51.5%
+M4: 6 visits, 50.39%
+
+best move!!
+lost 51.5% winrate (this display still needs to be tested)];B[no]C[B:
+S16: 30 visits, 50.49%
+Q14: 1 visits, 50.49%
+
+best move!!
+lost 50.49% winrate (this display still needs to be tested)];W[oo]C[W:
+S4: 18 visits, 51.88%
+N7: 8 visits, 51.13%
+L5: 4 visits, 51.59%
+D6: 1 visits, 48.19%
+
+best move!!
+lost 51.88% winrate (this display still needs to be tested)];B[rn]C[B:
+S17: 30 visits, 49.96%
+D6: 0 visits, 0.0%
+
+best move!!
+lost 49.96% winrate (this display still needs to be tested)];W[nl]C[W:
+S3: 31 visits, 52.42%
+S2: 0 visits, 100.0%
+
+best move!!
+lost 52.42% winrate (this display still needs to be tested)];B[ok]C[B:
+O3: 15 visits, 49.96%
+N2: 4 visits, 49.61%
+
+best move!!
+lost 49.96% winrate (this display still needs to be tested)];W[ml]C[W:
+N7: 18 visits, 52.33%
+L6: 4 visits, 52.15%
+M6: 3 visits, 48.99%
+Q8: 3 visits, 55.25%
+
+best move!!
+lost 52.33% winrate (this display still needs to be tested)];B[qo]C[B:
+M3: 14 visits, 49.76%
+N4: 12 visits, 49.32%
+
+best move!!
+lost 49.76% winrate (this display still needs to be tested)];W[oj]C[W:
+Q8: 23 visits, 52.94%
+M8: 11 visits, 54.64%
+
+best move!!
+lost 52.94% winrate (this display still needs to be tested)];B[nk]C[B:
+N5: 15 visits, 49.14%
+M4: 4 visits, 48.4%
+
+best move!!
+lost 49.14% winrate (this display still needs to be tested)];W[mk]C[W:
+R9: 19 visits, 55.65%
+Q9: 11 visits, 53.81%
+Q7: 4 visits, 55.63%
+
+best move!!
+lost 55.65% winrate (this display still needs to be tested)];B[nj]C[B:
+S4: 17 visits, 49.28%
+N7: 0 visits, 0.0%
+
+best move!!
+lost 49.28% winrate (this display still needs to be tested)];W[ni]C[W:
+P8: 14 visits, 57.66%
+R10: 12 visits, 54.53%
+R7: 4 visits, 50.54%
+
+best move!!
+lost 57.66% winrate (this display still needs to be tested)];B[mj]C[B:
+S3: 27 visits, 48.38%
+S2: 0 visits, 0.0%
+
+best move!!
+lost 48.38% winrate (this display still needs to be tested)];W[lj]C[W:
+R7: 23 visits, 51.67%
+S9: 9 visits, 60.14%
+
+best move!!
+lost 51.67% winrate (this display still needs to be tested)];B[mi]C[B:
+N7: 15 visits, 50.17%
+M6: 0 visits, 0.0%
+
+best move!!
+lost 50.17% winrate (this display still needs to be tested)];W[mh]C[W:
+S7: 29 visits, 51.5%
+S8: 4 visits, 56.04%
+
+best move!!
+lost 51.5% winrate (this display still needs to be tested)];B[li]C[B:
+Q8: 13 visits, 48.15%
+M8: 10 visits, 46.52%
+
+best move!!
+lost 48.15% winrate (this display still needs to be tested)];W[ki]C[W:
+S8: 15 visits, 55.34%
+Q6: 11 visits, 56.53%
+S6: 2 visits, 58.47%
+
+best move!!
+lost 55.34% winrate (this display still needs to be tested)];B[lh]C[B:
+R9: 13 visits, 47.11%
+Q9: 7 visits, 50.55%
+
+best move!!
+lost 47.11% winrate (this display still needs to be tested)];W[lg]C[W:
+O5: 14 visits, 43.95%
+P6: 10 visits, 54.74%
+P7: 10 visits, 59.78%
+N6: 5 visits, 58.14%
+O7: 5 visits, 61.24%
+
+best move!!
+lost 43.95% winrate (this display still needs to be tested)];B[kh]C[B:
+P8: 14 visits, 45.97%
+R10: 8 visits, 45.45%
+R7: 3 visits, 50.08%
+
+best move!!
+lost 45.97% winrate (this display still needs to be tested)];W[jh]C[W:
+O7: 13 visits, 58.3%
+S6: 9 visits, 61.09%
+O5: 7 visits, 60.43%
+P6: 6 visits, 65.53999999999999%
+
+best move!!
+lost 58.3% winrate (this display still needs to be tested)];B[kg]C[B:
+R7: 16 visits, 43.53%
+S9: 11 visits, 39.29%
+
+best move!!
+lost 43.53% winrate (this display still needs to be tested)];W[kf]C[W:
+S6: 19 visits, 56.74%
+O5: 11 visits, 48.34%
+
+best move!!
+lost 56.74% winrate (this display still needs to be tested)];B[jg]C[B:
+S7: 23 visits, 45.88%
+S8: 3 visits, 42.14%
+
+best move!!
+lost 45.88% winrate (this display still needs to be tested)];W[ig]C[W:
+S6: 30 visits, 42.7%
+S8: 0 visits, 100.0%
+
+best move!!
+lost 42.7% winrate (this display still needs to be tested)];B[jf]C[B:
+Q6: 14 visits, 46.79%
+S8: 9 visits, 41.91%
+
+best move!!
+lost 46.79% winrate (this display still needs to be tested)];W[je]C[W:
+P9: 35 visits, 47.06%
+R5: 0 visits, 100.0%
+
+best move!!
+lost 47.06% winrate (this display still needs to be tested)];B[if]C[B:
+N6: 10 visits, 44.23%
+P7: 9 visits, 39.25%
+P6: 4 visits, 40.81%
+O5: 2 visits, 50.95%
+
+best move!!
+lost 44.23% winrate (this display still needs to be tested)];W[hf]C[W:
+R5: 18 visits, 41.6%
+M8: 14 visits, 51.62%
+M7: 5 visits, 55.72%
+P10: 4 visits, 51.44%
+
+best move!!
+lost 41.6% winrate (this display still needs to be tested)];B[ie]C[B:
+O7: 11 visits, 42.54%
+P6: 5 visits, 39.31%
+S6: 5 visits, 39.24%
+O5: 4 visits, 38.69%
+
+best move!!
+lost 42.54% winrate (this display still needs to be tested)];W[id]C[W:
+O9: 32 visits, 36.8%
+P3: 0 visits, 100.0%
+
+best move!!
+lost 36.8% winrate (this display still needs to be tested)];B[he]C[B:
+O5: 15 visits, 49.1%
+S6: 13 visits, 41.42%
+
+best move!!
+lost 49.1% winrate (this display still needs to be tested)];W[ge]C[W:
+O10: 25 visits, 43.07%
+P3: 0 visits, 100.0%
+
+best move!!
+lost 43.07% winrate (this display still needs to be tested)];B[hd]C[B:
+S6: 19 visits, 57.29%
+S8: 0 visits, 0.0%
+
+best move!!
+lost 57.29% winrate (this display still needs to be tested)];W[hc]C[W:
+N10: 30 visits, 40.35%
+P3: 2 visits, 82.32%
+
+best move!!
+lost 40.35% winrate (this display still needs to be tested)];B[gd]C[B:
+P9: 15 visits, 55.65%
+R5: 0 visits, 0.0%
+
+best move!!
+lost 55.65% winrate (this display still needs to be tested)];W[fd]C[W:
+N11: 32 visits, 41.49%
+P3: 0 visits, 100.0%
+
+best move!!
+lost 41.49% winrate (this display still needs to be tested)];B[gc]C[B:
+R5: 11 visits, 59.54%
+M8: 9 visits, 44.11%
+M7: 3 visits, 41.38%
+P10: 2 visits, 47.67%
+
+best move!!
+lost 59.54% winrate (this display still needs to be tested)];W[gb]C[W:
+M11: 38 visits, 44.69%
+P3: 1 visits, 78.03999999999999%
+
+best move!!
+lost 44.69% winrate (this display still needs to be tested)];B[fc]C[B:
+O9: 24 visits, 58.5%
+P3: 0 visits, 0.0%
+
+best move!!
+lost 58.5% winrate (this display still needs to be tested)];W[ec]C[W:
+M12: 42 visits, 45.73%
+P3: 2 visits, 80.08%
+Q5: 1 visits, 70.6%
+
+best move!!
+lost 45.73% winrate (this display still needs to be tested)];B[fb]C[B:
+O10: 21 visits, 56.92%
+P3: 0 visits, 0.0%
+
+best move!!
+lost 56.92% winrate (this display still needs to be tested)];W[eb]C[W:
+L12: 47 visits, 48.24%
+P3: 1 visits, 64.52000000000001%
+
+best move!!
+lost 48.24% winrate (this display still needs to be tested)];B[hb]C[B:
+N10: 27 visits, 58.32%
+P3: 1 visits, 39.3%
+
+best move!!
+lost 58.32% winrate (this display still needs to be tested)];W[fa]C[W:
+L13: 50 visits, 50.36%
+P3: 1 visits, 66.58%
+
+best move!!
+lost 50.36% winrate (this display still needs to be tested)]C[B:
+
+best move!!])
