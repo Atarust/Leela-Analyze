@@ -3,6 +3,7 @@ import os
 import re
 import sys
 import time
+import random
 
 from configparser import ConfigParser
 from queue import Queue, Empty
@@ -58,13 +59,43 @@ def _dumb_log(message):
     sys.stderr.write("DUMBSTONE: {}\r\n".format(message))
     sys.stderr.flush()
 
+def _log_to_file(message):
+    with open("log_file", "a") as myfile:
+        myfile.write('LOG:' + str(datetime.datetime.now()) + str(message)+'\n')
+
+def _error_to_file(message):
+    with open("error_file", "a") as myfile:
+        myfile.write('Error:' + str(datetime.datetime.now()) + str(message)+'\n\n\n\n')
+
+def save_result(leela,network,v1,v2,win_b,win_w,puct1=0.8,puct2=0.8):
+    values = [leela,network,v1,v2,win_b,win_w,puct1,puct2]
+    result = ''
+    for value in values:
+        result += str(value) + ','
+
+    with open("result_file.csv", "a") as myfile:
+        myfile.write(str(datetime.datetime.now()) +','+ result+'\n')
+
+def _winrate_to_file(leela, weights, v1, v2, winrates,puct1=0.8,puct2=0.8):
+    values = [leela,weights,v1,v2,puct1,puct2]
+    result = ''
+    for value in values:
+        result += str(value) + ','
+    for wr in winrates:
+        result += str(wr) + ','
+
+    with open("winrate_file.csv", "a") as myfile:
+        myfile.write(str(datetime.datetime.now()) +','+ result+'\n')
+
+
+
 class LzWrapper:
     """
     Wrapper for Leela Zero process.
     """
     _VARIATION = re.compile(r" *([^ ]*) -> *([^ ]*) \(V: ([^%]*)%\).*$")
 
-    def __init__(self, lz_binary, weights, visits, puct=0.8, nr_rand_moves=0, remote=False, log_f=_dumb_log, debug=False):
+    def __init__(self, lz_binary, weights, visits, puct=0.8, nr_rand_moves=0, remote=False, log_f=_log_to_file, debug=False):
         """
         Start Leela Zero wrapper.
 
@@ -91,7 +122,7 @@ class LzWrapper:
             cmd_leela = lz_binary
             cmd_leela += ' -w' + weights
             cmd_leela += ' -v' +  str(visits)
-            #cmd_leela += ' -c' + str(puct)
+            cmd_leela += ' -c' + str(puct)
             cmd_leela += ' -m' + str(nr_rand_moves)
             cmd_leela += ' --gtp'
             cmd_leela += ' -b0'
@@ -111,7 +142,7 @@ class LzWrapper:
 
         # pylint: disable=fixme
         if self._debug_lz:
-            print(cmd_line)
+            self._log(cmd_line)
         self._log("Starting LZ")
         self._lz = Popen(cmd_line,
                          stdin=PIPE, stdout=PIPE, stderr=PIPE,
@@ -141,13 +172,13 @@ class LzWrapper:
     def _consume_stdout_until_ready(self):
         legal_move = True
         while True:
-            out = self._lz_out.get(timeout=30)  # blocking!
+            out = self._lz_out.get()  # blocking!
             the_output = out.strip()
             if self._debug_lz:
                 self._log("Consumed: {}".format(the_output))
             if len(the_output) > 0 and the_output[0] == '?':
                 legal_move = False
-                print("found illegal move!")
+                self._log("found illegal move!")
                 return legal_move
             if out[0:1] == '=':
                 return legal_move
@@ -175,7 +206,7 @@ class LzWrapper:
         """
         command_bytes = bytes(command, encoding='ascii')
         if self._debug_lz:
-            print(command_bytes)
+            self._log(command_bytes)
         self._lz.stdin.write(command_bytes)
         self._lz.stdin.flush()
 
@@ -269,6 +300,6 @@ class LzWrapper:
         try:
           self._consume_stdout_until_ready()
         except(Empty):
-          print('clear board gave no feedback. Hope it still works.')
+          self._log('clear board gave no feedback. Hope it still works.')
           pass
         return 
