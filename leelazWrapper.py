@@ -72,9 +72,10 @@ def save_result(leela,network,v1,v2,win_b,win_w,puct1=0.8,puct2=0.8):
     result = ''
     for value in values:
         result += str(value) + ','
+    result = result[:-1] # remove last comma
 
     with open("result_file.csv", "a") as myfile:
-        myfile.write(str(datetime.datetime.now()) +','+ result+'\n')
+        myfile.write(str(datetime.datetime.now()) +','+ result+';\n')
 
 def _winrate_to_file(leela, weights, v1, v2, winrates,puct1=0.8,puct2=0.8):
     values = [leela,weights,v1,v2,puct1,puct2]
@@ -95,7 +96,7 @@ class LzWrapper:
     """
     _VARIATION = re.compile(r" *([^ ]*) -> *([^ ]*) \(V: ([^%]*)%\).*$")
 
-    def __init__(self, lz_binary, weights, visits, puct=0.8, nr_rand_moves=0, remote=False, log_f=_log_to_file, debug=False):
+    def __init__(self, lz_binary, weights, visits, puct=0.8, nr_rand_moves=0, resign=10, remote=False, log_f=_log_to_file, debug=False):
         """
         Start Leela Zero wrapper.
 
@@ -127,7 +128,7 @@ class LzWrapper:
             cmd_leela += ' --gtp'
             cmd_leela += ' -b0'
             cmd_leela += ' -t' + str(nr_cpus)
-            cmd_leela += ' -r10' # do not resign before x%
+            cmd_leela += ' -r' + str(resign) # do not resign before resign %
 
             cmd_line += ['--command', cmd_leela]
         else:
@@ -138,12 +139,13 @@ class LzWrapper:
             cmd_line += ['-m', str(nr_rand_moves)]
             
             cmd_line += ['--gtp']
-            cmd_line += ['-r10'] # do not resign before x%
+            cmd_line += ['-r', str(resign)]  # do not resign before resign %
 
         # pylint: disable=fixme
         if self._debug_lz:
             self._log(cmd_line)
         self._log("Starting LZ")
+        #TODO throw a MEANINGFUL error, of cmd_line is wrong.
         self._lz = Popen(cmd_line,
                          stdin=PIPE, stdout=PIPE, stderr=PIPE,
                          bufsize=1)

@@ -20,10 +20,52 @@ from misc import adjust_variations_to_color, switched, generate_comment
     # return list: for each move the winrate for black
     # games should have some randomness in beginning...
 
-def create_self_play_game(leela1, leela2, sgf, log_move="."):
+def create_self_play_game(leela1, leela2, sgf, log_move=".", head_start_length=0, head_start_leela1=None,head_start_leela2=None):
     color = 'B'
     move_nr = 1
     winrates = [] # collect winrates of moves from view of B.
+
+    # create head start (much lower visits, because no visits are needed at beginning)
+    for _ in range(head_start_length):
+        if color == 'B':
+            move, variations = head_start_leela1.genmove(color)
+            head_start_leela2.play(color, move)
+            leela1.play(color, move)
+            leela2.play(color, move)
+        else:
+            move, variations = leela2.genmove(color)
+            head_start_leela1.play(color, move)
+            leela1.play(color, move)
+            leela2.play(color, move)
+        variations = adjust_variations_to_color(variations,color)
+        if len(variations) > 0:
+            winrates.append(variations[0][2])
+        comment = generate_comment(move, move, variations, color, 0)
+        sgf.add_move(move)
+        sgf.add_comment(comment+'\n(headstart)')
+        comment = ""
+        if move == 'resign':
+            winner = switched(color)
+            return winner, sgf, winrates
+        sys.stdout.write(log_move)
+        sys.stdout.flush()
+        
+        # simplification: game ends after first pass
+        if move == 'pass':
+            # find out who win by trusting last winrate
+            if len(variations) > 0:
+                last_winrate = variations[0][2]
+            else:
+                last_winrate = 50
+            if last_winrate > 50:
+                winner = color
+            else:
+                winner = switched(color)
+            return winner, sgf, winrates
+    
+        color = switched(color)
+        move_nr += 1
+
     for _ in range(10000):
         if color == 'B':
             move, variations = leela1.genmove(color)
@@ -61,9 +103,19 @@ def create_self_play_game(leela1, leela2, sgf, log_move="."):
         move_nr += 1
 
 
-def run_experiment(leela, weights, v1=1, v2=1, puct1=0.8, puct2=0.8, nr_of_games=1):
-    leela1 = LzWrapper(leela, weights, v1, nr_rand_moves=10, remote=remote, puct=puct1)
-    leela2 = LzWrapper(leela, weights, v2, nr_rand_moves=10, remote=remote, puct=puct2)
+def run_experiment(leela, weights, v1=1, v2=1, puct1=0.8, puct2=0.8, nr_of_games=1, head_start_length=0, debug=False):
+    leela1 = LzWrapper(leela, weights, v1, nr_rand_moves=10, remote=remote, puct=puct1, resign=20, debug=debug)
+    leela2 = LzWrapper(leela, weights, v2, nr_rand_moves=10, remote=remote, puct=puct2, resign=20, debug=debug)
+
+    if(head_start_length > 0):
+        v1_headstart = min(v1,10)
+        v2_headstart = min(v2,10)
+        
+        leela1_headstart = LzWrapper(leela, weights, v1_headstart, nr_rand_moves=10, remote=remote, puct=puct1, debug=debug)
+        leela2_headstart = LzWrapper(leela, weights, v2_headstart, nr_rand_moves=10, remote=remote, puct=puct2, debug=debug)
+    else:
+        leela1_headstart = None
+        leela2_headstart = None
 
     b_wins = 0
     w_wins = 0
@@ -73,11 +125,13 @@ def run_experiment(leela, weights, v1=1, v2=1, puct1=0.8, puct2=0.8, nr_of_games
         _log_to_file("Clearing board.")
         leela1.clear_board()
         leela2.clear_board()
-        
+        if(head_start_length > 0):
+            leela1_headstart.clear_board()
+            leela2_headstart.clear_board()
         sgf=sgf_creator(opening=[], visits1=v1, visits2=v2, puct1=puct1,puct2=puct2)
         _log_to_file("create self play.")
         try:
-            winner, sgf, winrates = create_self_play_game(leela1, leela2, sgf)
+            winner, sgf, winrates = create_self_play_game(leela1, leela2, sgf, head_start_length=head_start_length, head_start_leela1=leela1_headstart, head_start_leela2=leela2_headstart)
             # dirty hack so that winrates are always from one side
             if winrates[-1] - winrates[-2] > 50:
                 old_wr = winrates
@@ -92,7 +146,7 @@ def run_experiment(leela, weights, v1=1, v2=1, puct1=0.8, puct2=0.8, nr_of_games
 
         except Exception as e_during_self_play:
             _error_to_file(e_during_self_play)
-            print("Error at: nr_of_games={}, leela={}, weights={}, v1={}, v2={}, puct1={}, puct2={}".format(str(i), str(leela), str(weights), str(v1), str(v2, str(puct1), str(puct2))))
+            print("Error at: nr_of_games={}, leela={}, weights={}, v1={}, v2={}, puct1={}, puct2={}".format(str(i), str(leela), str(weights), str(v1), str(v2), str(puct1), str(puct2)))
             print(e_during_self_play)
             continue
         if(winner=='B'):
@@ -104,7 +158,7 @@ def run_experiment(leela, weights, v1=1, v2=1, puct1=0.8, puct2=0.8, nr_of_games
         sgf.save('games/eval_{}_vb{}_vw{}_puctb{}_{}.sgf'.format(str(datetime.datetime.now()), v1, v2, puct1, random.randint(0,100000)))
     return b_wins, w_wins
 
-def main(remote=False):
+def main(remote=False, debug=False):
 
     normal_leela = '/home/jonas/leela-study/leela-zero/src/leelaz'
     remote_leela = 'scripts/remote-leelaz'
@@ -133,7 +187,7 @@ def main(remote=False):
         for v2 in [v1]:
             for puct1 in puct1_range:
                 print(v1, v2, puct1)
-                b_wins, w_wins = run_experiment(leela, weights, v1=v1, v2=v2, puct1=puct1, nr_of_games=nr_of_games)
+                b_wins, w_wins = run_experiment(leela, weights, v1=v1, v2=v2, puct1=puct1, nr_of_games=nr_of_games, head_start_length=head_start_length, debug=debug)
                 save_result(leela,weights,v1,v2,b_wins,w_wins,puct1=puct1)
                 _log_to_file('Result: v1={}, v2={}, puct1={}: {}-{}'.format(v1,v2,puct1,b_wins,w_wins))
                 with open("results", "a") as myfile:
@@ -146,11 +200,13 @@ def main(remote=False):
     print("End of experiment.\n\n\n")
 
 remote = False
+debug = False
 
 try:
-    main(remote=remote)
+    main(remote=remote, debug=debug)
 except Exception as e:
     print(e)
     if remote:
         print("Error. stopping cloud.")
+        print(e)
         subprocess.call("scripts/stop-instance.sh")
