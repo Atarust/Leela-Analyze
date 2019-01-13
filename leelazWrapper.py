@@ -119,7 +119,6 @@ class LzWrapper:
             cmd_line += [instance]
             cmd_line += ['--zone', zone]
 
-            lz_binary = '/leela/leelaz'
             cmd_leela = lz_binary
             cmd_leela += ' -w' + weights
             cmd_leela += ' -v' +  str(visits)

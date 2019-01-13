@@ -175,7 +175,8 @@ def main(remote=False, debug=False):
         subprocess.call("scripts/start-instance.sh")
 
     nr_of_games = 100
-    v1_range = [100]
+    head_start_length=0
+    v1_range = [10]
     v2_range = ['same']
     puct1_range = [0.5, 0.6,0.9, 1]
     puct2=0.8
@@ -205,7 +206,8 @@ debug = False
 try:
     main(remote=remote, debug=debug)
 except Exception as e:
-    print(e)
+    if debug:
+        raise e # makes code unrobust
     if remote:
         print("Error. stopping cloud.")
         print(e)
