@@ -1,0 +1,6 @@
+# how to create a self play with beginning and mirror on the cloud
+
+1. copy the file game_create_.._.py to cloud. /leela/ 
+2. ssh to cloud
+3. execute game_create_prepare sh (downloads an opening)
+4. python3 game_create.py 
